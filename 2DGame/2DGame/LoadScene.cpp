@@ -16,75 +16,75 @@ LoadScene::~LoadScene()
 
 void LoadScene::Update()
 {
-	//if (loadFlag == false)
-	//{
-	//	// メイン画像
-	//	if (Graphics::loadFlag[0])
-	//	{
-	//		point = x_point[0];
-	//	}
-	//	else
-	//	{
-	//		std::thread th1([] { Graphics::LoadMainGraphics(); });
-	//		th1.join();
-	//		Graphics::loadFlag[0] = true;
-	//	}
+	if (loadFlag == false)
+	{
+		// メイン画像
+		if (Graphics::loadFlag[0])
+		{
+			point = x_point[0];
+		}
+		else
+		{
+			std::thread th1([] { Graphics::LoadMainGraphics(); });
+			th1.join();
+			Graphics::loadFlag[0] = true;
+		}
 
-	//	// プレイヤー画像
-	//	if (Graphics::loadFlag[1])
-	//	{
-	//		point = x_point[1];
-	//	}
-	//	else
-	//	{
-	//		std::thread th2([] { Graphics::LoadPlayerGraphics(); });
-	//		th2.join();
-	//		Graphics::loadFlag[1] = true;
-	//	}
+		// プレイヤー画像
+		if (Graphics::loadFlag[1])
+		{
+			point = x_point[1];
+		}
+		else
+		{
+			std::thread th2([] { Graphics::LoadPlayerGraphics(); });
+			th2.join();
+			Graphics::loadFlag[1] = true;
+		}
 
-	//	// 敵画像
-	//	if (Graphics::loadFlag[2])
-	//	{
-	//		point = x_point[2];
-	//	}
-	//	else
-	//	{
-	//		std::thread th3([] { Graphics::LoadEnemyGraphics(); });
-	//		th3.join();
-	//		Graphics::loadFlag[2] = true;
-	//	}
+		// 敵画像
+		if (Graphics::loadFlag[2])
+		{
+			point = x_point[2];
+		}
+		else
+		{
+			std::thread th3([] { Graphics::LoadEnemyGraphics(); });
+			th3.join();
+			Graphics::loadFlag[2] = true;
+		}
 
-	//	// 文字画像
-	//	if (Graphics::loadFlag[3])
-	//	{
-	//		point = x_point[0];
-	//	}
-	//	else
-	//	{
-	//		std::thread th4([] { Graphics::LoadWordGraphics(); });
-	//		th4.join();
-	//		Graphics::loadFlag[3] = true;
-	//	}
-	//}
+		// 文字画像
+		if (Graphics::loadFlag[3])
+		{
+			point = x_point[0];
+		}
+		else
+		{
+			std::thread th4([] { Graphics::LoadWordGraphics(); });
+			th4.join();
+			Graphics::loadFlag[3] = true;
+		}
+	}
 
-	//// すべての処理が完了していたら
-	//if (Graphics::loadFlag[0] && Graphics::loadFlag[1] &&
-	//	Graphics::loadFlag[2] && Graphics::loadFlag[3])
-	//{
-	//	timer++;
-	//	if (timer == 30)
-	//	{
-	//		timer = 0;
-	//		loadFlag = true;
-	//		nowScene = SceneName::mStart;
-	//	}
-	//}
+	// すべての処理が完了していたら
+	if (Graphics::loadFlag[0] && Graphics::loadFlag[1] &&
+		Graphics::loadFlag[2] && Graphics::loadFlag[3])
+	{
+		timer++;
+		if (timer == 30)
+		{
+			timer = 0;
+			loadFlag = true;
+			nowScene = SceneName::mStart;
+		}
+	}
 
-	if (Keyboard::GetKey(KEY_INPUT_RETURN) == 1)
+	/*if (Keyboard::GetKey(KEY_INPUT_RETURN) == 1)
 	{
 		loadFlag = true;
 		nowScene = SceneName::mStart;
-	}
+	}*/
 }
 
 void LoadScene::Draw()
